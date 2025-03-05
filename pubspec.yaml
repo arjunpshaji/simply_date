@@ -1,0 +1,21 @@
+name: simply_date
+description: A simple Flutter package for date formatting and time conversions.
+version: 1.0.0
+homepage: https://github.com/arjunpshaji/simply_date
+repository: https://github.com/arjunpshaji/simply_date
+issue_tracker: https://github.com/arjunpshaji/simply_date/issues
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - date
+  - time
+  - formatting
