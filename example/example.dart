@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text("SimplyDate Example")),
         body: Center(
-          child: Text(simplyDate.convertToTimeAgo(dateTimeString: "2024-08-21 08:30:00 AM") ?? "No Data"),
+          child: Text(simplyDate.convertToTimeAgo(
+                  dateTimeString: "2024-08-21 08:30:00 AM") ??
+              "No Data"),
         ),
       ),
     );

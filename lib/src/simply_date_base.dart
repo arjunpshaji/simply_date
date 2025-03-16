@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
 
-
 class SimplyDate {
   /// Formats a given datetime string to a "time ago" format.
   ///
@@ -10,7 +9,8 @@ class SimplyDate {
   /// and the current datetime, formatted as "time ago".
   String? convertToTimeAgo({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     DateTime now = DateTime.now();
     Duration difference = now.difference(dateTime);
     int minutesDifference = difference.inMinutes.abs();
@@ -38,7 +38,8 @@ class SimplyDate {
   String? convertToDDMMYYYformat({String? dateTimeString}) {
     if (dateTimeString == null) return null;
     // Parse the input date string using the input format
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
 
     // Format the parsed DateTime object to the desired output format
     String formattedDate = DateFormat("dd/MM/yyyy").format(dateTime);
@@ -53,7 +54,8 @@ class SimplyDate {
   String? convertYYYYMMDD({String? dateTimeString}) {
     if (dateTimeString == null) return null;
     // Parse the input date string using the input format
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
 
     // Format the parsed DateTime object to the desired output format
     String formattedDate = DateFormat("yyyy-MM-dd").format(dateTime);
@@ -68,7 +70,8 @@ class SimplyDate {
   String? convertMMDDYYYY({String? dateTimeString}) {
     if (dateTimeString == null) return null;
     // Parse the input date string using the input format
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
 
     // Format the parsed DateTime object to the desired output format
     String formattedDate = DateFormat("MM/dd/yyyy").format(dateTime);
@@ -83,7 +86,8 @@ class SimplyDate {
   String? convertToDDMMYY({String? dateTimeString}) {
     if (dateTimeString == null) return null;
     // Parse the input date string using the input format
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
 
     // Format the parsed DateTime object to the desired output format
     String formattedDate = DateFormat("dd/MM/yy").format(dateTime);
@@ -94,14 +98,16 @@ class SimplyDate {
   // Example: April 06, 2024
   String? convertToMonthDayYear({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     return DateFormat("MMMM d, yyyy").format(dateTime);
   }
 
 // Example: 06 April 2024
   String? convertToDayMonthYear({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     return DateFormat("d MMMM yyyy").format(dateTime);
   }
 
@@ -111,7 +117,8 @@ class SimplyDate {
   /// a string formatted as "yyyy/MM/dd".
   String? convertToYYYYMMDDSlash({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     return DateFormat("yyyy/MM/dd").format(dateTime);
   }
 
@@ -120,23 +127,30 @@ class SimplyDate {
   /// Takes a [dateTimeString] in the format "yyyy-MM-dd hh:mm:ss a" and returns
   /// a string formatted as "dd/MM/yyyy hh:mm a".
   /// use [isNeedAt] if you need "at"
-  String? convertToDDMMYYYYAtTime({String? dateTimeString, bool? isNeedAt = false}) {
+  String? convertToDDMMYYYYAtTime(
+      {String? dateTimeString, bool? isNeedAt = false}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
-    return DateFormat("dd/MM/yyyy ${isNeedAt == true ? 'at' : null} hh:mm a").format(dateTime);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    return DateFormat("dd/MM/yyyy ${isNeedAt == true ? 'at' : null} hh:mm a")
+        .format(dateTime);
   }
 
   /// Converts a date string from the format "yyyy-MM-dd hh:mm:ss a" to "yyyy-MM-dd hh:mm a".
-  String? convertToDefaultFormat({String? dateTimeString, bool? isNeedAt = false}) {
+  String? convertToDefaultFormat(
+      {String? dateTimeString, bool? isNeedAt = false}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
-    return DateFormat("yyyy-MM-dd ${isNeedAt == true ? 'at' : null} hh:mm a").format(dateTime);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    return DateFormat("yyyy-MM-dd ${isNeedAt == true ? 'at' : null} hh:mm a")
+        .format(dateTime);
   }
 
   /// Converts a date string from the format "yyyy-MM-dd hh:mm:ss a" to "Mon, 20 Oct 2024".
   String? convertToDayMonthYearWithDay({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     return DateFormat("EEE, dd MMM yyyy").format(dateTime);
   }
 
@@ -144,14 +158,16 @@ class SimplyDate {
   /// Example: "2024-05-20 02:30 PM" will be converted to "May 2024".
   String? convertToMonthYear({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     return DateFormat("MMMM yyyy").format(dateTime);
   }
 
   /// Converts a date string from the format "yyyy-MM-dd hh:mm:ss a" to "2024 October".
   String? convertToYearMonth({String? dateTimeString}) {
     if (dateTimeString == null) return null;
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     return DateFormat("yyyy MMMM").format(dateTime);
   }
 
@@ -205,10 +221,13 @@ class SimplyDate {
   /// - If the date is yesterday, it returns "Yesterday at hh:mm a".
   /// - Otherwise, it returns the date in a customizable format [customFormat].
   /// Default custom format is "dd/MM/yyyy 'at' hh:mm a"
-  String? toRelativeDateTime({String? dateTimeString, String customFormat = "dd/MM/yyyy 'at' hh:mm a"}) {
+  String? toRelativeDateTime(
+      {String? dateTimeString,
+      String customFormat = "dd/MM/yyyy 'at' hh:mm a"}) {
     if (dateTimeString == null) return null;
 
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     DateTime now = DateTime.now();
 
     // Check if the date is today
@@ -227,17 +246,25 @@ class SimplyDate {
 
   /// Helper function to check if two dates are the same calendar date (ignoring time).
   bool isSameDate(DateTime date1, DateTime date2) {
-    return date1.year == date2.year && date1.month == date2.month && date1.day == date2.day;
+    return date1.year == date2.year &&
+        date1.month == date2.month &&
+        date1.day == date2.day;
   }
 
   /// Converts a date string from the format "yyyy-MM-dd hh:mm:ss a" to a format with ordinal suffixes like "21st May".
-  String? toDayWithOrdinalSuffix({String? dateTimeString, bool? isRemoveMonth = false, bool? isRemoveYear = false}) {
+  String? toDayWithOrdinalSuffix(
+      {String? dateTimeString,
+      bool? isRemoveMonth = false,
+      bool? isRemoveYear = false}) {
     if (dateTimeString == null) return null;
 
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
+    DateTime dateTime =
+        DateFormat("yyyy-MM-dd hh:mm:ss a").parse(dateTimeString);
     String dayWithSuffix = getDayWithSuffix(dateTime.day);
-    String? month = isRemoveMonth == false ? DateFormat("MMMM").format(dateTime) : null;
-    String? year = isRemoveYear == false ? DateFormat("yyyy").format(dateTime) : null;
+    String? month =
+        isRemoveMonth == false ? DateFormat("MMMM").format(dateTime) : null;
+    String? year =
+        isRemoveYear == false ? DateFormat("yyyy").format(dateTime) : null;
 
     // Build the final string, adding only non-null values and separating them with spaces
     List<String> parts = [dayWithSuffix];
