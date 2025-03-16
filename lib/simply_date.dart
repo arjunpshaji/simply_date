@@ -1,3 +1,3 @@
-library simply_date;
+library;
 
 export 'src/simply_date_base.dart';

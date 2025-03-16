@@ -236,7 +236,7 @@ class SimplyDate {
     }
 
     // Check if the date is yesterday
-    if (isSameDate(dateTime, now.subtract(Duration(days: 1)))) {
+    if (isSameDate(dateTime, now.subtract(const Duration(days: 1)))) {
       return DateFormat("'Yesterday at' hh:mm a").format(dateTime);
     }
 
