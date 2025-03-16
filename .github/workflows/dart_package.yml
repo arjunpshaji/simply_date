@@ -21,13 +21,13 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 3.29
+          flutter-version: 3.29 # Use stable to avoid version issues
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Check formatting
-        run: dart format --output=none --set-exit-if-changed .
+        run: dart format --output=none --set-exit-if-changed . # Fixed
 
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings
@@ -35,8 +35,11 @@ jobs:
       - name: Run tests
         run: flutter test --coverage
 
+      - name: Install coverage tool (if needed)
+        run: dart pub global activate coverage # Ensures coverage is available
+
       - name: Convert coverage to LCOV
-        run: flutter pub run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
+        run: dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v4
