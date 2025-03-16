@@ -1,4 +1,4 @@
-name: Dart Package CI
+name: Flutter Package CI
 
 on:
   push:
@@ -18,25 +18,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          sdk: stable
+          flutter-version: stable
 
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
 
       - name: Check formatting
-        run: dart format --output=none --set-exit-if-changed .
+        run: flutter format --output=none --set-exit-if-changed .
 
       - name: Analyze code
-        run: dart analyze --fatal-infos --fatal-warnings
+        run: flutter analyze --fatal-infos --fatal-warnings
 
       - name: Run tests
-        run: dart test --coverage=coverage
+        run: flutter test --coverage
 
       - name: Convert coverage to LCOV
-        run: dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
+        run: flutter pub run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v4
@@ -54,18 +54,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          sdk: stable
+          flutter-version: stable
 
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
 
       - name: Dry-run publish
-        run: dart pub publish --dry-run
+        run: flutter pub publish --dry-run
 
       - name: Publish package
         env:
           PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
-        run: echo "$PUB_CREDENTIALS" > ~/.pub-cache/credentials.json && dart pub publish -f
+        run: echo "$PUB_CREDENTIALS" > ~/.pub-cache/credentials.json && flutter pub publish -f
